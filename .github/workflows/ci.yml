@@ -1,4 +1,7 @@
 name: ci
+permissions:
+  checks: write
+  statuses: write
 on:
   push:
     branches:
@@ -9,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: [ '1.19', '1.20', '1.21', '1.22', '1.x' ]
+        go: ["1.19", "1.20", "1.21", "1.22", "1.x"]
     name: Go ${{ matrix.go }}
     steps:
       - uses: actions/checkout@v4
@@ -20,3 +23,18 @@ jobs:
       - run: go mod download
       - run: go build .
       - run: go test -v
+
+      - name: Report Status
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            github.rest.repos.createCommitStatus({
+              owner,
+              repo,
+              sha: context.sha,
+              state: 'success',
+              description: 'CI tests passed successfully',
+              context: 'CI Status'
+            });
