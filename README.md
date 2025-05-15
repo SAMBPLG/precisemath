@@ -1,7 +1,7 @@
 
 # precisemath
 
-[![ci](https://github.com/SAMBPLG/precisemath/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/SAMBPLG/precisemath/actions/workflows/ci.yml)
+[![ci](https://github.com/SAMBPLG/precisemath/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SAMBPLG/precisemath/actions/workflows/ci.yml)
 [![GoDoc](https://godoc.org/github.com/SAMBPLG/precisemath?status.svg)](https://godoc.org/github.com/SAMBPLG/precisemath)
 [![Go Report Card](https://goreportcard.com/badge/github.com/SAMBPLG/precisemath)](https://goreportcard.com/report/github.com/SAMBPLG/precisemath)
 
